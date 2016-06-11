@@ -1,0 +1,8 @@
+  "angular": Dependencias principales de la libreria
+  "bootstrap" Dependencias para estilos
+  "angular-animate": Dependencias para animaciones
+  "angular-cookies": Dependencias para acceder a variables de sesion
+  "angular-resource": Dependencias para conexiones REST (Es mejor la HTTP)
+  "angular-route": Dependencias para enrutamiento (Master Page) 
+  "firebase": Dependencias para almacenamiento en firebase (DBNOSQL)
+  "angularfire": Dependencias para almacenamiento en firebase (DBNOSQL)
