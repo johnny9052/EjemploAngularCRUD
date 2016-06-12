@@ -74,10 +74,7 @@ and open the template in the editor.
             <!--END FORMULARIO LOGIN -->
 
 
-            <!-- AQUI QUEDAMOS
-                    Buscar como tener multiples ng-view, con esto se puede cargar el archivo
-                        master page desde el index, teniendo todo en un unico archivo            
-                    Buscar como hacer para que el master page no aparezca y desaparezca            
+            <!-- AQUI QUEDAMOS                    
                     Buscar los componentes que estan ciendo cargados desde el codigo y que no se estan utilizandoz
             -->
 

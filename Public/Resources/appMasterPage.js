@@ -1,11 +1,24 @@
+
 /*Se definen las depenciencias que seran utilizadas por el sistema*/
 var app = angular.module("appMasterPage", ['ngRoute', 'ngCookies']);
 
-app.run(function ($rootScope, $window, $cookieStore) {
 
-    if ($cookieStore.get('username') !== "") {
+/*Controlador global, que cada vez que se cargue la pagina masterPage 
+ * valida si ya inicio sesion para saber si se deja o se redirecciona 
+ * al index*/
+app.controller('CtlValidate', function ($scope, $cookieStore, $window) {
+    /*Se almacena en el modelo sesion, este es utilizado por el ng-show 
+     * para saber si muestra o no la interfaz grafica*/
+    $scope.sesion = $cookieStore.get('sesion');
+    /*Luego se valida para saber si se redirecciona o no*/
+    if (!$scope.sesion) {
         $window.location.href = 'index.php';
     }
+});
+
+
+
+app.run(function ($rootScope, $window, $cookieStore) {
 
 //    $rootScope.$on('$routeChangeStart', function (event, next, current) {
 //        if ($cookieStore.get('username') !== "") {
@@ -18,9 +31,14 @@ app.run(function ($rootScope, $window, $cookieStore) {
 });
 
 
+
+
+
 /*Se definen las rutas del ng-route, que seran cargadas en el ng-view*/
 
-//app.config(function ($routeProvider) {
+app.config(function ($routeProvider) {
+
+
 //    $routeProvider
 //            .when('/', {
 //                templateUrl: 'Rutas_Inicio.php'
@@ -36,4 +54,4 @@ app.run(function ($rootScope, $window, $cookieStore) {
 //            .otherwise({
 //                redirectTo: '/'
 //            });
-//});
+});

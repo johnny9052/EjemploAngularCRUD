@@ -29,10 +29,12 @@ and open the template in the editor.
 
     </head>
 
-    <body ng-app="appMasterPage">
+    <!-- Se asocia el controlador y el ngshow para validar si se debe mostrar
+     o no el masterPage, teniendo en cuenta si se ha iniciado sesion-->
+    <body ng-app="appMasterPage" ng-controller="CtlValidate" ng-show="sesion">
 
         <h1>Entramos carajo!</h1>
-        
+
         <!-- MASTER PAGE -->
         <div ng-view>
 
