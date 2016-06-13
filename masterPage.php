@@ -18,11 +18,7 @@ and open the template in the editor.
         <!-- DEPENDENCIAS ADICIONALES ANGULAR -->        
         <!-- ARCHIVO NECESARIO PARA EL MASTER PAGE -->
         <!-- PERMITE HACER EL ENRUTAMIENTO DE URL'S -->
-        <script src="Public/Resources/bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
-        <!-- ARCHIVO NECESARIO PARA LA GESTION DE COOKIES -->            
-        <script src="Public/Resources/bower_components/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
-        <!-- ARCHIVO NECESARIO PARA CONSUMO REST (ES MEJOR POR HTTP) -->
-        <script src="Public/Resources/bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+        <script src="Public/Resources/bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>        
 
         <!-- ARCHIVOS PROPIOS -->
         <script src="Public/Resources/appMasterPage.js" type="text/javascript"></script>
@@ -44,6 +40,8 @@ and open the template in the editor.
     <body ng-app="appMasterPage" ng-controller="CtlValidate" ng-show="sesion">
 
 
+        <!-- SE CARGA REMOTAMENTE UN FORMULARIO-->
+
         <!-- MENU -->        
         <div ng-include="'Public/View/template/menu.php'"></div>
         <!-- END MENU -->
@@ -54,8 +52,9 @@ and open the template in the editor.
         <div ng-view></div>
         <!-- END MASTER PAGE -->
 
-
         <hr>
+
+        <!-- SE CARGA REMOTAMENTE UN FORMULARIO-->
 
         <!-- FOOTER -->
         <div ng-include="'Public/View/template/footer.php'"></div>

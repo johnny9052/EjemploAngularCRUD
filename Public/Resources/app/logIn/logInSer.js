@@ -1,3 +1,11 @@
+"use strict";
+
+
+/*El use strict hace que se deba codificar de manera correcta, siendo estricto
+ * a la hora de compilar el codigo ejemplo: 
+ * x = 3.14; // This will cause an error (x is not defined)*/
+
+
 
 /* global app */
 
@@ -13,7 +21,7 @@
  * datos diferente a como se hacia en jquery  y muchos webservices no encuentran
  * los datos que les llega, por lo que se hace necesario serializarlos como 
  * jquery para que lleguen al servidor*/
-app.service('logInService', function ($http, $httpParamSerializerJQLike, $cookieStore) {
+app.service('logInService', function ($http, $httpParamSerializerJQLike) {
 
     /*Se define una funcion interna llamada logIn, que recibe 2 parametros*/
     this.logIn = function (identificacion) {
@@ -27,6 +35,7 @@ app.service('logInService', function ($http, $httpParamSerializerJQLike, $cookie
                 password: identificacion.password}),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function mySucces(response) {
+            /*Todos los datos se almacenan en .data*/
             return response.data;
         }, function myError(response) {
             alert("Error");

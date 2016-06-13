@@ -20,13 +20,11 @@ and open the template in the editor.
         <!-- ARCHIVO NECESARIO PARA EL MASTER PAGE -->
         <!-- PERMITE HACER EL ENRUTAMIENTO DE URL'S -->
         <script src="Public/Resources/bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
-        <!-- ARCHIVO NECESARIO PARA LA GESTION DE COOKIES -->            
-        <script src="Public/Resources/bower_components/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
-        <!-- ARCHIVO NECESARIO PARA CONSUMO REST (ES MEJOR POR HTTP) -->
-        <script src="Public/Resources/bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
 
         <!-- ARCHIVOS PROPIOS -->
         <script src="Public/Resources/app.js" type="text/javascript"></script>
+
+
         <!-- ARCHIVOS DEL LOGIN-->
         <script src="Public/Resources/app/logIn/logInCtl.js" type="text/javascript"></script>
         <script src="Public/Resources/app/logIn/logInSer.js" type="text/javascript"></script>
@@ -45,6 +43,7 @@ and open the template in the editor.
                             <label>Usuario</label>                        
                         </td>
                         <td>
+                            <!-- Se asocial el modelo al campo-->
                             <input type="text" id="txtUsuario" name="usuario" 
                                    ng-model="identificacion.usuario" required>
                         </td>                     
@@ -62,7 +61,7 @@ and open the template in the editor.
 
                     <tr>
                         <td>
-                            
+
                         </td>
                         <td>
                             <!-- Se envia por parametro si esta bien diligenciado
@@ -75,10 +74,6 @@ and open the template in the editor.
             </form>
             <!--END FORMULARIO LOGIN -->
 
-
-            <!-- AQUI QUEDAMOS                    
-                    Buscar los componentes que estan ciendo cargados desde el codigo y que no se estan utilizandoz
-            -->
 
         </div>
     </body>            

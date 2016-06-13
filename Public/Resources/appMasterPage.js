@@ -1,12 +1,12 @@
 
 /*Se definen las depenciencias que seran utilizadas por el sistema*/
-var app = angular.module("appMasterPage", ['ngRoute', 'ngCookies']);
+var app = angular.module("appMasterPage", ['ngRoute']);
 
 
 /*Controlador global, que cada vez que se cargue la pagina masterPage 
  * valida si ya inicio sesion para saber si se deja o se redirecciona 
  * al index*/
-app.controller('CtlValidate', function ($scope, $cookieStore, $window, $http) {
+app.controller('CtlValidate', function ($scope, $window) {
     /*Se almacena en el modelo sesion, este es utilizado por el ng-show 
      * para saber si muestra o no la interfaz grafica*/
 
@@ -19,28 +19,10 @@ app.controller('CtlValidate', function ($scope, $cookieStore, $window, $http) {
 });
 
 
-
-app.run(function ($rootScope, $window, $cookieStore) {
-
-//    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-//        if ($cookieStore.get('username') !== "") {
-//            //$location.path('/login');
-//            alert("No ha iniciado sesion");
-//        } else {
-//            alert("Inicio sesion");
-//        }
-//    });
-});
-
-
-
-
-
-/*Se definen las rutas del ng-route, que seran cargadas en el ng-view*/
-
+/*Se definen las rutas del ng-route, que seran cargadas en el ng-view, ademas
+ * desde aqui se asocian los controladores, por lo que no es necesario asociarlos 
+ * desde la vista*/
 app.config(function ($routeProvider) {
-
-
     $routeProvider
             .when('/', {
                 templateUrl: 'Public/View/inicio.php'
