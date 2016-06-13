@@ -1,13 +1,23 @@
 <?php
 
+include '../Model/clsLoguin.php';
+include '../DAO/loguinDAO.php';
+
 /* Capturamos el tipo de la peticion: podría ser get, post, put o delete. */
 $method = $_SERVER['REQUEST_METHOD'];
 // Se obtiene la URI
 $resource = $_SERVER['REQUEST_URI'];
 
-//echo '{"valor": "'.$method . '.........' . $resource.'"}';
+
+session_start();
+
+$loguin = new clsLoguin($usuario, $password);
+$conex = new loguinDAO();
+
+
 // Dependiendo del método de la petición ejecutaremos la acción correspondiente.
 switch (strtolower($method)) {
+    /* Buscar o Listar */
     case 'get':
 
         $id = (isset($_GET['id']) ? $_GET['id'] : "");

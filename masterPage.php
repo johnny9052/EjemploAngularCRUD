@@ -27,19 +27,38 @@ and open the template in the editor.
         <!-- ARCHIVOS PROPIOS -->
         <script src="Public/Resources/appMasterPage.js" type="text/javascript"></script>
 
+
+        <!-- ARCHIVOS ADMINISTRACION SESION -->
+        <script src="Public/Resources/app/logIn/logInCtl.js" type="text/javascript"></script>
+        <script src="Public/Resources/app/logIn/logInSer.js" type="text/javascript"></script>
+        <!-- END ARCHIVOS ADMINISTRACION SESION -->
+
+        <!-- ARCHIVOS MODULO ESTUDIANTE -->
+        <script src="Public/Resources/app/estudiante/estudianteCtl.js" type="text/javascript"></script>
+        <script src="Public/Resources/app/estudiante/estudianteInSer.js" type="text/javascript"></script>
+        <!-- END ARCHIVOS MODULO ESTUDIANTE -->
     </head>
 
     <!-- Se asocia el controlador y el ngshow para validar si se debe mostrar
      o no el masterPage, teniendo en cuenta si se ha iniciado sesion-->
     <body ng-app="appMasterPage" ng-controller="CtlValidate" ng-show="sesion">
 
-        <h1>Entramos carajo!</h1>
+
+        <!-- MENU -->        
+        <div ng-include="'Public/View/template/menu.php'"></div>
+        <!-- END MENU -->
+
+        <hr>
 
         <!-- MASTER PAGE -->
-        <div ng-view>
-
-        </div>
+        <div ng-view></div>
         <!-- END MASTER PAGE -->
 
+
+        <hr>
+
+        <!-- FOOTER -->
+        <div ng-include="'Public/View/template/footer.php'"></div>
+        <!-- END FOOTER -->
     </body>
 </html>

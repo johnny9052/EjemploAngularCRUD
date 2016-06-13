@@ -36,17 +36,17 @@ and open the template in the editor.
     <body ng-app="appPrincipal">
         <!-- Seccion donde se actualizara el contenido definido en el route, 
         especificado con ng-view -->
-        <div class="container">
+        <div class="container">            
             <!-- FORMULARIO LOGIN -->
-            <div ng-controller="CtlLogIn">
-                <table ng-show="!sesion" border="0">
+            <form ng-controller="CtlLogIn" name="formLogIn">
+                <table  border="0">
                     <tr>
                         <td>
                             <label>Usuario</label>                        
                         </td>
                         <td>
                             <input type="text" id="txtUsuario" name="usuario" 
-                                   ng-model="usuario">
+                                   ng-model="identificacion.usuario" required>
                         </td>                     
                     </tr>
 
@@ -55,22 +55,24 @@ and open the template in the editor.
                             <label>Password</label>                        
                         </td>
                         <td>
-                            <input type="text" id="txtPassword" name="password" 
-                                   ng-model="password">
+                            <input type="password" id="txtPassword" name="password" 
+                                   ng-model="identificacion.password" required>
                         </td>                     
                     </tr>
 
                     <tr>
                         <td>
-                            <input type="text" name="type" style="display: none">
+                            
                         </td>
                         <td>
+                            <!-- Se envia por parametro si esta bien diligenciado
+                            el formulario o no-->
                             <input type="button" value="Loguin" id="btnLoguin" 
-                                   ng-click="logIn()">                       
+                                   ng-click="logIn(formLogIn.$valid)">                       
                         </td>
                     </tr>
                 </table>           
-            </div>
+            </form>
             <!--END FORMULARIO LOGIN -->
 
 

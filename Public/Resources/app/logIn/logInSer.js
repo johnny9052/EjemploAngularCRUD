@@ -16,21 +16,18 @@
 app.service('logInService', function ($http, $httpParamSerializerJQLike, $cookieStore) {
 
     /*Se define una funcion interna llamada logIn, que recibe 2 parametros*/
-    this.logIn = function (usuario, password) {
+    this.logIn = function (identificacion) {
         /*El resultado del $http es almacenado en la promesa*/
         /*Ademas se debe definir el tipo de cabecera para enviar los datos*/
         var promise = $http({
             method: "post",
-            url: "Server/Controller/RestPersonas.php",
-            data: $httpParamSerializerJQLike({usuario: usuario, id: password}),
+            url: "Server/Controller/RestLogIn.php",
+            data: $httpParamSerializerJQLike({
+                usuario: identificacion.usuario,
+                password: identificacion.password}),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function mySucces(response) {
-
-            $cookieStore.put('username', response.data.usuario);
-            $cookieStore.put('sesion', true);
-            //$cookieStore.remove('usuario');
-
-            return response.data.usuario;
+            return response.data;
         }, function myError(response) {
             alert("Error");
             alert(response.statusText);
