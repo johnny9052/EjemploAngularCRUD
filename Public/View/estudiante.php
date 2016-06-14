@@ -20,40 +20,89 @@
             </td>
 
             <td rowspan="10">
-                <table id="listObjectadoEstudiantes" border="1">             
 
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Cedula</th>
-                        <th>Edad</th>
-                        <th>Semestre</th>
-                    </tr>
 
-                    <!-- Recorre el listObjectado de tareas, y por cada elemento incrusta
-                el codigo que se encuentra dentro del LI-->
-                    <tr ng-repeat="obj in estudiantes">
-                        <td>
-                            {{obj.codigo}}
-                        </td>
-                        <td>
-                            {{obj.nombre}}
-                        </td>
-                        <td>
-                            {{obj.apellido}}
-                        </td>
-                        <td>
-                            {{obj.cedula}}
-                        </td>
-                        <td>
-                            {{obj.edad}}
-                        </td>
-                        <td>
-                            {{obj.semestre}}
-                        </td>
-                    </tr>
-                </table>
+                <!-- ESTE DIV ENCIERRA TODO, CON EL FIN DE AGRUPAR EL CAMPO 
+                DE BUSQUEDA CON LA TABLA QUE LISTA LOS DATOS-->
+                <div class="panel panel-primary">
+
+                    <!-- CABECERA QUE CONTENDRA EL INPUT DE BUSQUEDA DE LOS DATOS -->
+                    <div class="panel-heading">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </span>
+                            <input type="text" class="form-control" 
+                                   placeholder="Buscar estudiante" ng-model="buscar">
+                            <!-- si el modelo fuera ng-model="buscar.nombre" solo 
+                            el filtro utilizado buscaria en el nombre-->
+                        </div>                                            
+                    </div>
+                    <!-- END CAMPO DE BUSQUEDA -->
+
+                    <div class="panel-body">
+                        <!-- CON ESTA TABLA SERIA SUFICIENTE SI LO UNICO QUE SE 
+                        QUIERE ES LISTAR LOS DATOS-->
+                        <table id="listObjectadoEstudiantes" class="table table-striped">             
+                            <thead>
+                                <tr>
+                                    <!-- -nombre (Mandando el menos por parametro
+                                        lo ordena de manera descendente), ademas la 
+                                        clase caret pone una flechita-->
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('codigo')">Codigo</a>
+                                        <a class="caret" ng-click="ordenarPor('-codigo')"></a>
+                                    </th>
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('nombre')">Nombre</a>
+                                        <a class="caret" ng-click="ordenarPor('-nombre')"></a>
+                                    </th>
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('apellido')">Apellido</a>
+                                        <a class="caret" ng-click="ordenarPor('-apellido')"></a>
+                                    </th>
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('cedula')">Cedula</a>
+                                        <a class="caret" ng-click="ordenarPor('-cedula')"></a>
+                                    </th>
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('edad')">Edad</a>
+                                        <a class="caret" ng-click="ordenarPor('-edad')"></a>
+                                    </th>
+                                    <th style="cursor: pointer;">                                    
+                                        <a ng-click="ordenarPor('semestre')">Semestre</a>
+                                        <a class="caret" ng-click="ordenarPor('-semestre')"></a>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <!-- Recorre el listObjectado de tareas, y por cada elemento incrusta
+                        el codigo que se encuentra dentro del LI-->
+                            <tbody>
+                                <tr ng-repeat="obj in estudiantes| orderBy:ordenSeleccionado | filter:buscar">
+                                    <td>
+                                        {{obj.codigo}}
+                                    </td>
+                                    <td>
+                                        {{obj.nombre| uppercase}}
+                                    </td>
+                                    <td>
+                                        {{obj.apellido| uppercase}}
+                                    </td>
+                                    <td>
+                                        {{obj.cedula}}
+                                    </td>
+                                    <td>
+                                        {{obj.edad}}
+                                    </td>
+                                    <td>
+                                        {{obj.semestre}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </td>
         </tr>
         <tr>
@@ -106,7 +155,7 @@
             </td>
             <td>
                 <input type="button" value="Guardar" id="btnGuardar" 
-                       ng-click="saveObject(formEstudiante.$valid,'save')">
+                       ng-click="saveObject(formEstudiante.$valid, 'save')">
                 <input type="button" value="Buscar" id="btnBuscar" 
                        ng-click="searchObject()">                    
             </td>
@@ -117,7 +166,7 @@
             </td>
             <td>
                 <input type="button" value="Modificar" id="btnModificar" 
-                       ng-click="saveObject(formEstudiante.$valid,'update')">
+                       ng-click="saveObject(formEstudiante.$valid, 'update')">
                 <input type="button" value="Eliminar" id="btnEliminar" 
                        ng-click="deleteObject()">
             </td>

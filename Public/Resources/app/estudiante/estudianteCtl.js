@@ -87,7 +87,7 @@ app.controller('CtlEstudiante', function ($scope, estudianteService) {
          * un valor valido. Este se ejecuta unicamente cuando el llamado http 
          * consume el REST ("REST" es un paradigma, mientras"RESTful" describe el 
          * uso de ese paradigma*/
-        
+
         if ($scope.estudiante.id) {
             estudianteService.deleteObject($scope.estudiante).then(function (response) {
                 /*El resultado de la promesa se recibe por parametro*/
@@ -106,6 +106,12 @@ app.controller('CtlEstudiante', function ($scope, estudianteService) {
         } else {
             alert("Busque el elemento a eliminar");
         }
+    };
+
+
+    /*Se define una funcion para ordenar los elementos*/
+    $scope.ordenarPor = function (tipo) {
+        $scope.ordenSeleccionado = tipo;
     };
 
     /*Se llama a la funcion listObjectar*/
