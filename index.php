@@ -29,7 +29,6 @@ and open the template in the editor.
         <script src="Public/Resources/app/logIn/logInCtl.js" type="text/javascript"></script>
         <script src="Public/Resources/app/logIn/logInSer.js" type="text/javascript"></script>
 
-
     </head>
     <body ng-app="appPrincipal">
         <!-- Seccion donde se actualizara el contenido definido en el route, 

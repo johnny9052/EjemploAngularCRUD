@@ -1,5 +1,5 @@
 
-instalacion por consola: bower install
+instalacion del BOWER por consola: bower install
 si se quiere añadir algo: bower install nombreRecurso --save
 
   "angular": Dependencias principales de la libreria

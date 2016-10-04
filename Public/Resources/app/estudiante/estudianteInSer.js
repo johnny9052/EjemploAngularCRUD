@@ -72,7 +72,7 @@ app.service('estudianteService', function ($http, $httpParamSerializerJQLike) {
         var promise = $http({
             method: "get",
             url: "Server/Controller/RestEstudiantes.php",
-            params: {codigo: estudiante.codigo
+            params: {id: estudiante.codigo
             },
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function mySucces(response) {

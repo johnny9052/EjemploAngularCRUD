@@ -15,7 +15,7 @@ $conex = new estudianteDAO();
 switch (strtolower($method)) {
     /* Buscar o Listar */
     case 'get':
-        $codigo = (isset($_GET['codigo']) ? $_GET['codigo'] : "");
+        $codigo = (isset($_GET['id']) ? $_GET['id'] : "");
 
         if ($codigo != "") {
             //Buscar
@@ -34,7 +34,6 @@ switch (strtolower($method)) {
         $data = json_decode(json_encode($_POST));
         $estudiante = new clsEstudiante(null, $data->codigo, $data->nombre, $data->apellido, $data->cedula, $data->edad, $data->semestre);
         $conex->guardar($estudiante);
-
         break;
 
 
