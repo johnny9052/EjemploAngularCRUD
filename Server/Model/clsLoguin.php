@@ -5,7 +5,7 @@ class clsLoguin {
     private $usuario;
     private $password;
 
-    public function __Construct($usuario, $password) {
+    public function __construct($usuario, $password) {
         $this->usuario = $usuario;
         $this->password = $password;
     }

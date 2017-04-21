@@ -6,7 +6,7 @@
 app.controller('CtlEstudiante', function ($scope, estudianteService) {
 
 
-    $scope.estudiante = "";
+    $scope.estudiante = {};
 
 
     /*Se define una funcion en el controlador*/

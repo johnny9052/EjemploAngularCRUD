@@ -29,10 +29,11 @@ switch (strtolower($method)) {
 
     case 'post':
         /* Se reciben todos los datos por post y se codifican */
-        /* Se pasa de POST a Strig JSON, y luego a un array */
-        $data = $_POST;
+        /* Se pasa de POST a Strig JSON, y luego a un array */        
         $data = json_decode(json_encode($_POST));
-        $estudiante = new clsEstudiante(null, $data->codigo, $data->nombre, $data->apellido, $data->cedula, $data->edad, $data->semestre);
+        $estudiante = new clsEstudiante(null, $data->codigo, 
+                $data->nombre, $data->apellido, $data->cedula, 
+                $data->edad, $data->semestre);
         $conex->guardar($estudiante);
         break;
 
@@ -42,7 +43,9 @@ switch (strtolower($method)) {
         parse_str(file_get_contents("php://input"), $post_vars);
         /* Se pasa del $post_vars a Strig JSON, y luego a un array */
         $data = json_decode(json_encode($post_vars));
-        $estudiante = new clsEstudiante($data->id, $data->codigo, $data->nombre, $data->apellido, $data->cedula, $data->edad, $data->semestre);
+        $estudiante = new clsEstudiante($data->id, $data->codigo, 
+                $data->nombre, $data->apellido, $data->cedula, 
+                $data->edad, $data->semestre);
         $conex->modificar($estudiante);
         break;
 
